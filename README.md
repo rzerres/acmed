@@ -133,6 +133,50 @@ make SYSCONFDIR="/usr/share/etc"
 make BINDIR="/usr/local/bin" install
 ```
 
+### Web-Server extensions
+
+When defining secure web-server instances, the administrator needs to
+specify a number of https specific configuration options. For further
+details, please refere to available internet documentation that deal with
+the topic.
+
+To ease the handling of domain specific certificate/key pairs, `acmed`
+makes use of its `hook` API, to preset two template files
+with dedicated `Let's Encrypt` instructions.
+
+* Template with `challenge` instructions
+* Template with `certificate` instructions
+
+When generating the templates, the following environment variables are resolved:
+
+- `HTTP_ROOT` (run-time): directory that specifies the  **.well-known/acme-challenge** root path (default: `$VARLIBDIR/acmed/domains/{ identifier }`)
+- `HTTP_CHALLENGE_LOCATION` (run-time): template file name (default: `001-challenge-letsencrypt.conf`)
+- `HTTP_TLS_CERTIFICATE` (run-time): template file name (default: `002-tls-certificates.conf`)
+
+#### Nginx
+
+When generating the templates, the following `nginx` specific environment variables are resolved:
+
+- `NGINX_CONFIDR` (run-time): directory to store the template files (default: `$SYSCONFDIR/nginx/conf.d`)
+
+The administrator may reference to this instructions, when the
+template-block is `copy-and-pasted` inside the `nginx` targeted
+domain/virtual-host configuration file.
+
+```
+
+	# handle HTTP-01 challenges (here: Let's Encryt)
+	include conf.d/001-challenge-letsencrypt.conf;
+
+	# Let's Encrypt TLS signed certificate
+	include conf.d/002-tls-certificates.conf;
+
+```
+
+If `acmed` is executed on a different target then your nginx
+instances, manual interaction is needed to copy the certificates to
+the target system.
+
 ### Packaging
 
 Most of the time, when packaging, you want to install the program in a dedicated directory. This is possible using the `DESTDIR` variable.
