@@ -1,0 +1,6 @@
+7bfa951d0486db5c8a7fe1e4c3e6978c  usr/bin/acmed
+14522f671b47d92e7afa0e77b3d26862  usr/bin/tacd
+5191f6923864ebb901a2e88c4fe6b768  usr/share/doc/acmed/changelog.gz
+b972689ac665c04dd46f329774c3fd04  usr/share/man/man5/acmed.toml.5.gz
+32c91f49fc7e3a84431357f6e89a5a75  usr/share/man/man8/acmed.8.gz
+5fd9c8eea2826f4b0a761e2bc4deaf45  usr/share/man/man8/tacd.8.gz

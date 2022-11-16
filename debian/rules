@@ -1,0 +1,14 @@
+#!/usr/bin/make -f
+# debian/rules
+# -*- mode: makefile; coding: utf-8 -*-
+
+export DH_VERBOSE=1
+#export DESTROOT=$(CURDIR)/debian/acmed
+export DESTDIR=$(CURDIR)/debian/acmed
+
+%:
+	dh $@ --sourcedirectory=src/acmed
+	#dh $@
+
+override_dh_auto_install:
+	dh_auto_install -- prefix=/usr
