@@ -1,0 +1,13 @@
+acmed (0.20.0-1) unstable; urgency=low
+
+  update debian dependencies
+
+ -- Ralf Zerres <rzerres@networkx.de>  Weg, 16 Nov 2022 13:34:00 +0200
+
+acmed (0.20.0) unstable; urgency=low
+
+  initial release
+  - using tag v0.20.0
+
+ -- Ralf Zerres <rzerres@networkx.de>  Mon, 25 Jul 2022 12:41:53 +0200
+
